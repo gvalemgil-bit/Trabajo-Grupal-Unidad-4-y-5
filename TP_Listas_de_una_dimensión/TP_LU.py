@@ -1,4 +1,4 @@
-def generar_lista_usuario():
+def generar_lista_usuario(): #Para evitar repetir código, creé esta función para generar las listas.
     print("A continuación, ingrese los números de la lista. Escriba DETENER para finalizar.")
     detener = False
     while not detener:
@@ -81,9 +81,6 @@ for i in range(len(lista)):
         duplicados.add(lista[i])
     else:
         revisados.add(lista[i])
-print(f"Lista: {lista}")
-print()
-
 duplicados = list(duplicados)
 print(f"Lista original: {lista}")
 if not duplicados:
@@ -126,8 +123,8 @@ print()
 
 #11) Contar ocurrencias de un elemento
 lista_numeros = []
-numero_repetido = float(input("Ingrese el número cuyas repeticiones quiere saber: "))
 generar_lista_usuario()
+numero_repetido = float(input("Ingrese el número cuyas repeticiones quiere saber: "))
 veces_repetido = 0
 for i in range(len(lista_numeros)):
     if lista_numeros[i] == numero_repetido:
@@ -152,15 +149,15 @@ print(f"La suma total de las sumas de cada elemento es: {suma_total}")
 print()
 
 #13) Explique y ejemplifique la librería Numpy para trabajar con matrices y arrays
-#NumPy es una biblioteca especializada en el cálculo numérico y el manejo de grandes volúmenes de datos estructurados en vectores y matrices.
+print("NumPy es una biblioteca especializada en el cálculo numérico y el manejo de grandes volúmenes de datos estructurados en vectores y matrices.")
 
-#Ejemplos:
+print("======Ejemplos======")
 import numpy as np
-#Crear un array de una dimensión
+print("Crear un array de una dimensión")
 vector = np.array([1, 2, 3, 4, 5])
 print(vector)
-
-#Sumar, restar o multiplicar sin usar for
+print()
+print("Sumar, restar o multiplicar sin usar for")
 a = np.array([1, 2, 3])
 b = np.array([4, 5, 6])
 
