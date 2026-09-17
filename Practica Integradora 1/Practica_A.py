@@ -45,16 +45,25 @@ while True:
    eleccion = input("Ingrese una opción: ").lower()
    match eleccion:
     case "a":
-        legajo = float(input("Ingrese su legajo: "))
+        legajo = input("Ingrese su legajo: ")
+        if not legajo.isdigit():
+            print("Error: Legajo inválido.")
+        else:
+            legajo = float(legajo)
         if legajo in empleados:
             while not no_golosina:
-                codigo_golosina = int(input("Ingrese el código de la golosina: "))
+                codigo_golosina = input("Ingrese el código de la golosina: ")
+                if not codigo_golosina.isdigit():
+                    print("Error: Código Inválido:")
+                    break
+                else:
+                    codigo_golosina = int(codigo_golosina)
                 if codigo_golosina == 0:
                     no_golosina = True
                 for i in range(len(matriz_golosinas)):
                     if matriz_golosinas[i][0] == codigo_golosina:
                         if matriz_golosinas[i][2] <= 0:
-                            print(f"Lo sentimos, la golosina {matriz_golosinas[i][1]} no se encunetra disponible, seleccione otra golosina o ingresa '0' si no desea otra golosina.")
+                            print(f"Lo sentimos, la golosina {matriz_golosinas[i][1]} no se encuentra disponible, seleccione otra golosina o ingresa '0' si no desea otra golosina.")
                         else:
                             matriz_golosinas[i][2] -= 1
                             if fue_pedido(codigo_golosina):
@@ -82,11 +91,15 @@ while True:
                 if checkear_codigo(codigo_golosina):
                     for i in range(len(matriz_golosinas)):
                         if matriz_golosinas[i][0] == codigo_golosina:
-                            cantidad_a_recargar = int(input(f"Ingrese la cantidad a recargar de {matriz_golosinas[i][1]}: "))
-                            if cantidad_a_recargar <= 0:
-                                print("Error: La cantidad a recargar debe ser mayor a cero.")
+                            cantidad_a_recargar = input(f"Ingrese la cantidad a recargar de {matriz_golosinas[i][1]}: ")
+                            if not cantidad_a_recargar.isdigit():
+                                print("Error: Número inválido.")
                             else:
-                                matriz_golosinas[i][2] += cantidad_a_recargar
+                                cantidad_a_recargar = int(cantidad_a_recargar)
+                                if cantidad_a_recargar <= 0:
+                                    print("Error: La cantidad a recargar debe ser mayor a cero.")
+                                else:
+                                    matriz_golosinas[i][2] += cantidad_a_recargar
                 else:
                     print("Error: Código inválido.")       
             else:
