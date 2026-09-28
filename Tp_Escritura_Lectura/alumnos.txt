@@ -1,0 +1,2 @@
+Vale;Gil;12345;10.0
+Jorge;Alberto;56789;5.0
