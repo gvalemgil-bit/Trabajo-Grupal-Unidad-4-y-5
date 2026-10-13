@@ -2,14 +2,9 @@ from barrio import Barrio
 from vivienda import Vivienda
 from habitacion import Habitacion
 
-
 class Principal:
-    """Clase que crea los objetos Barrio, Vivienda y Habitaciones,
-    ejecuta las asociaciones y muestra el resultado de los metodos."""
-
     @staticmethod
     def main():
-        # --------- CREO LOS OBJETOS ---------
         barrio = Barrio("Los Aromos", "Constructora del Sur S.A.")
 
         vivienda1 = Vivienda("Av. Siempreviva", 742, "A", 1, 200)
@@ -34,17 +29,15 @@ class Principal:
         vivienda4.agregarHabitacion(Habitacion("Dormitorio", 12))
         vivienda4.agregarHabitacion(Habitacion("Bano", 4))
 
-        # Asocio las viviendas al barrio
         barrio.agregarVivienda(vivienda1)
         barrio.agregarVivienda(vivienda2)
         barrio.agregarVivienda(vivienda3)
         barrio.agregarVivienda(vivienda4)
 
-        # --------- DATOS DEL BARRIO ---------
+
         print("=========== DATOS DEL BARRIO ===========")
         barrio.mostrar()
 
-        # --------- RESULTADO DE LOS METODOS ---------
         print()
         print("=========== RESULTADOS ===========")
         print("a) Superficie total de terreno del barrio:", barrio.getSuperficieTotalTerreno(), "m2")
@@ -53,18 +46,15 @@ class Principal:
         print("c) Metros cubiertos de la vivienda 1:", vivienda1.getMetrosCuadradosCubiertos(), "m2")
         print("d) Superficie total cubierta del barrio:", barrio.getSuperficieTotalCubierta(), "m2")
 
-        # --------- PRUEBA DE LA EXCEPCION ---------
         print()
         print("=========== PRUEBA DE LA EXCEPCION ===========")
         viviendaIncorrecta = Vivienda("Calle Falsa", 123, "C", 5, 50)
         viviendaIncorrecta.agregarHabitacion(Habitacion("Living", 30))
         viviendaIncorrecta.agregarHabitacion(Habitacion("Dormitorio", 25))
-
         try:
             print("Metros cubiertos:", viviendaIncorrecta.getMetrosCuadradosCubiertos())
         except Exception as e:
             print("Excepcion lanzada:", e)
-
 
 if __name__ == "__main__":
     Principal.main()

@@ -4,19 +4,14 @@ def formatearNumero(numero):
         return str(int(numero))
     return str(numero)
 
-
 class Plato:
-    """Clase Plato con los atributos nombreCompleto, precio, esBebida y ingredientes."""
-
     def __init__(self, nombreCompleto, precio, esBebida):
         self.nombreCompleto = nombreCompleto
         self.precio = precio
         self.esBebida = esBebida
-        self.ingredientes = []  # lista de objetos Ingrediente
-
+        self.ingredientes = [] 
     def agregarIngrediente(self, ingrediente):
         self.ingredientes.append(ingrediente)
-
     def mostrar(self):
         print(self.nombreCompleto)
         print("Precio: $", formatearNumero(self.precio))
