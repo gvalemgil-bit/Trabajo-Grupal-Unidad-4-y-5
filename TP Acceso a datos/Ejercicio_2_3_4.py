@@ -74,7 +74,7 @@ def eliminar_libro(id_libro):
 if __name__ == '__main__':
     inicializar_db()
     while True:
-        print("\n=== SISTEMA DE GESTIÓN DE BIBLIOTECA ===")
+        print("=== SISTEMA DE GESTIÓN DE BIBLIOTECA ===")
         print("1. Registrar nuevo autor")
         print("2. Registrar nuevo libro")
         print("3. Listar todos los libros")
@@ -86,16 +86,16 @@ if __name__ == '__main__':
             nombre = input("Ingrese el nombre del autor: ")
             nacionalidad = input("Ingrese la nacionalidad del autor: ")
             id_gen = registrar_autor(nombre, nacionalidad)
-            print(f"✅ Autor registrado exitosamente con el ID: {id_gen}") 
+            print(f"Autor registrado exitosamente con el ID: {id_gen}") 
         elif opcion == '2':
             titulo = input("Ingrese el título del libro: ")
             try:
                 anio = int(input("Ingrese el año de publicación: "))
                 autor_id = int(input("Ingrese el ID del autor correspondiente: "))
                 registrar_libro(titulo, anio, autor_id)
-                print("✅ Libro registrado exitosamente.")
+                print("Libro registrado exitosamente.")
             except ValueError:
-                print("❌ Error: El año y el ID del autor deben ser números enteros.")         
+                print("Error: El año y el ID del autor deben ser números enteros.")         
         elif opcion == '3':
             listar_libros()
         elif opcion == '4':
@@ -103,18 +103,18 @@ if __name__ == '__main__':
                 id_libro = int(input("Ingrese el ID del libro a actualizar: "))
                 nuevo_titulo = input("Ingrese el nuevo título: ")
                 actualizar_titulo_libro(id_libro, nuevo_titulo)
-                print("✅ Título actualizado exitosamente.")
+                print("Título actualizado exitosamente.")
             except ValueError:
-                print("❌ Error: El ID del libro debe ser un número entero.") 
+                print("Error: El ID del libro debe ser un número entero.") 
         elif opcion == '5':
             try:
                 id_libro = int(input("Ingrese el ID del libro a eliminar: "))
                 eliminar_libro(id_libro)
-                print("✅ Libro eliminado exitosamente.")
+                print("Libro eliminado exitosamente.")
             except ValueError:
-                print("❌ Error: El ID del libro debe ser un número entero.")     
+                print("Error: El ID del libro debe ser un número entero.")     
         elif opcion == '6':
             print("Saliendo del sistema...")
             break
         else:
-            print("❌ Opción no válida. Por favor, intente de nuevo.")
+            print("Opción no válida. Por favor, intente de nuevo.")
